@@ -5,7 +5,7 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
-@app.route('/resize')
+@app.route('/resize', methods=['POST'])
 def Resize_Image():
     #     # begin here, pass the image in base 64
     #     # size = (467, 700)
