@@ -37,9 +37,7 @@ def Resize_Image():
     os.remove(name)
     os.remove(name_final)
     # stament return
-    return image_64_encode
-    # return jsonify({"base64":image_64_encode})
-
+    return str(image_64_encode)
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
