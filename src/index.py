@@ -1,7 +1,7 @@
 import base64
 from io import BytesIO
 from PIL import Image
-from flask import Flask, request
+from flask import Flask, make_response, request
 
 app = Flask(__name__)
 
@@ -31,8 +31,8 @@ def resize_image():
         image_data = output_buffer.getvalue()
         image_base64 = base64.b64encode(image_data).decode()
         return image_base64
-    except:
-        return 'image not resized'
+    except Exception as e:
+        return make_response(f'Could not process the request, error: {e}', 400)        
 
 
 if __name__ == '__main__':
